@@ -4573,12 +4573,12 @@ INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, 
 
 -- Sample relationship types
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
-    VALUES( 'Child of', 'Lapsi', 'Parent of', 'Vanhempi', 'Vanhempi/lapsi yhteys.', 'Individual', 'Individual', 0 ),
+    VALUES( 'Child of', 'Lapsi', 'Parent of', 'Vanhempi', 'Vanhempi-lapsi-suhde.', 'Individual', 'Individual', 0 ),
           ( 'Spouse of', 'Puoliso', 'Spouse of', 'Puoliso', 'Spousal relationship.', 'Individual', 'Individual', 0 ),
-          ( 'Partner of', 'Yhteistyökumppani', 'Partner of', 'Yhteistyökumppani', 'Yhteistyökumppaniyhteys', 'Individual', 'Individual', 0 ),
+          ( 'Partner of', 'Yhteistyökumppani', 'Partner of', 'Yhteistyökumppani', 'Partner relationship.', 'Individual', 'Individual', 0 ),
           ( 'Sibling of', 'Sisarrus', 'Sibling of', 'Sisarrus', 'Sibling relationship.', 'Individual','Individual', 0 ),
           ( 'Employee of', 'Työntekijä', 'Employer of', 'Työnantaja', 'Employment relationship.','Individual','Organization', 1 ),
-          ( 'Volunteer for', 'Vapaaehtoinen', 'Volunteer is', 'Volunteer is', 'Volunteer relationship.','Individual','Organization', 0 ),
+          ( 'Volunteer for', 'Vapaaehtoinen', 'Volunteer is', 'Vapaaehtoinen on', 'Vapaaehtoisena työskentely.','Individual','Organization', 0 ),
           ( 'Head of Household for', 'Head of Household for', 'Head of Household is', 'Head of Household is', 'Head of household.','Individual','Household', 1 ),
           ( 'Household Member of', 'Kotitalouden jäsen', 'Household Member is', 'Household Member is', 'Household membership.','Individual','Household', 1 );
 
@@ -4595,7 +4595,7 @@ INSERT INTO civicrm_tag( name, description, parent_id,used_for )
     ( 'Voittoa tavoittelematon', 'Mikä tahansa voittoa tavoittelematon yhteisö.', NULL,'civicrm_contact'),
     ( 'Yritys', 'Voittoa tavoitteleva yhteisö', NULL,'civicrm_contact'),
     ( 'Julkishallinnon yksikkö', 'Mikä tahansa julkishallinnon yksikkö', NULL,'civicrm_contact'),
-    ( 'Merkittävä lahjoittaja', 'Organisaatiomme arvokas tukija.', NULL,'civicrm_contact'),
+    ( 'Merkittävä lahjoittaja', 'Yhteisömme arvokas tukija.', NULL,'civicrm_contact'),
     ( 'Vapaaehtoinen', 'Aktiiviset vapaaehtoiset.', NULL,'civicrm_contact' );
 
 
@@ -4610,7 +4610,7 @@ VALUES
     ('Peruuta viesti','Unsubscribe','Un-subscribe Confirmation','You have been un-subscribed from the following groups: {unsubscribe.group}. You can re-subscribe by mailing {action.resubscribe} or clicking <a href=\"{action.resubscribeUrl}\">here</a>.','You have been un-subscribed from the following groups: {unsubscribe.group}. You can re-subscribe by mailing {action.resubscribe} or clicking ',1,1),
     ('Uudelleentilaamisen viesti','Resubscribe','Re-subscribe Confirmation','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking <a href=\"{action.unsubscribeUrl}\">here</a>.','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking {action.unsubscribeUrl}',1,1),
     ('Poisjättäytymisen viesti','OptOut','Opt-out Confirmation','Your email address has been removed from {domain.name} mailing lists.','Your email address has been removed from {domain.name} mailing lists.',1,1),
-    ('Automaatti-vastaaja','Reply','Ole hyvä ja lähetä kyselyt meidän yhteyssähköpostiin','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.',1,1);
+    ('Automaatti-vastaaja','Reply','Ole hyvä ja lähetä kyselyt yhteyssähköpostiimme','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.',1,1);
 
 
 -- contribution types
@@ -4627,7 +4627,7 @@ VALUES
 INSERT INTO
    `civicrm_option_group` (`name`, `title`, `is_reserved`, `is_active`, `is_locked`)
 VALUES
-   ('preferred_communication_method', 'Suositeltava yhteydenpitotapa'     , 1, 1, 0),
+   ('preferred_communication_method', 'Ensisijainen yhteydenpitotapa'     , 1, 1, 0),
    ('activity_type'                 , 'Aktiviteetin tyyppi'                      , 1, 1, 0),
    ('gender'                        , 'Sukupuoli'                             , 1, 1, 0),
    ('instant_messenger_service'     , 'Instant Messenger (IM) screen-names', 1, 1, 0),
@@ -4637,7 +4637,7 @@ VALUES
    ('acl_role'                      , 'ACL-rooli'                           , 1, 1, 0),
    ('accept_creditcard'             , 'Accepted Credit Cards'              , 1, 1, 0),
    ('payment_instrument'            , 'Payment Instruments'                , 1, 1, 0),
-   ('contribution_status'           , 'Avustuksen tila'                , 1, 1, 1),
+   ('contribution_status'           , 'Maksun tila'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Status'                         , 1, 1, 1),
    ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
    ('participant_role'              , 'Osallistujan rooli'                   , 1, 1, 0),
@@ -4661,7 +4661,7 @@ VALUES
    ('mapping_type'                  , 'Mapping Type'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'WYSIWYG-editori'                     , 1, 1, 0),
    ('recur_frequency_units'         , 'Recurring Frequency Units'          , 1, 1, 0),
-   ('phone_type'                    , 'Puhelun tyyppi'                         , 1, 1, 0),
+   ('phone_type'                    , 'Puhelintyyppi'                         , 1, 1, 0),
    ('custom_data_type'              , 'Custom Data Type'                   , 1, 1, 0),
    ('visibility'                    , 'Näkyvyys'                         , 1, 1, 0),
    ('mail_protocol'                 , 'Mail Protocol'                      , 1, 1, 0),
@@ -4688,7 +4688,7 @@ VALUES
    ('pdf_format'                    , 'PDF sivuformaatti'                    , 1, 1, 0),
    ('label_format'                  , 'Mailing Label Format'               , 1, 1, 0),
    ('activity_contacts'             , 'Activity Contacts'                  , 1, 1, 1),
-   ('account_relationship'          , 'Tilin yhteys'               , 1, 1, 0),
+   ('account_relationship'          , 'Account Relationship'               , 1, 1, 0),
    ('event_contacts'                , 'Event Recipients'                   , 1, 1, 0),
    ('conference_slot'               , 'Conference Slot'                    , 1, 1, 0),
    ('batch_type'                    , 'Batch Type'                         , 1, 1, 1),
@@ -4701,7 +4701,7 @@ VALUES
    ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
    ('label_type'                    , 'Label Type'                         , 1, 1, 0),
    ('name_badge'                    , 'Name Badge Format'                  , 1, 1, 0),
-   ('communication_style'           , 'Communication Style'                , 1, 1, 0),
+   ('communication_style'           , 'Yhteydenottojen tyyli'                , 1, 1, 0),
    ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
    ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
 
@@ -4805,7 +4805,7 @@ VALUES
    (@option_group_id_act, 'Sähköposti',                              3, 'Email',               NULL, 1, NULL, 3, 'Email sent.',                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Outbound SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Text message (SMS) sent.',                                             0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Event Registration',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Online or offline event registration.',                                0, 1, 1, @eventCompId, NULL),
-   (@option_group_id_act, 'Avustus',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Online or offline contribution.',                                      0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Maksu',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Online or offline contribution.',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Membership Signup',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Online or offline membership signup.',                                 0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Membership Renewal',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Online or offline membership renewal.',                                0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Kerro ystävälle',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Send information about a contribution campaign or event to a friend.', 0, 1, 1, NULL, NULL),
@@ -4957,9 +4957,9 @@ VALUES
   (@option_group_id_cvOpt, 'Yhteyssuhteet',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Ryhmät'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Muistiinpanot'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Luokat'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Avainsanat'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Muutosloki'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Avustukset',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Maksut',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Jäsenyydet'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Tapahtumat'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Tapaukset'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
@@ -4976,7 +4976,7 @@ VALUES
   (@option_group_id_ceOpt, 'Osoite'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Suositellut viestintätavat',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Muistiinpanot'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Demokrafia'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Demografiset tiedot'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Tagit ja Ryhmät'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Sähköposti'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Puhelin'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
@@ -4996,20 +4996,20 @@ VALUES
   (@option_group_id_asOpt, 'Yhteyssuhteet'           ,   4, 'relationship', NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Muistiinpanot'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Change Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Avustukset'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Maksut'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Jäsenyydet'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Tapahtumat'                  ,   9, 'CiviEvent', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Tapaukset'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Demokrafia'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Demografiset tiedot'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Lupaukset'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Kontaktin tyyppi'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Kontaktityyppi'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Ryhmät'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Luokat'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Avainsanat'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Mailing'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'Ryhmät'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Avustukset'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Maksut'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Jäsenyydet'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Tapahtumat'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'My Contacts / Organizations', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
@@ -5076,13 +5076,13 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'Kokotekstihaku', 0, 0, 1, NULL, NULL),
 
 -- report templates
-  (@option_group_id_report , 'Olennainen raportti (Yhteenveto)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Provides a list of address and telephone information for constituent records in your system.', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Olennainen raportti (yksityiskohtainen)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Provides contact-related information on contributions, memberships, events and activities.',   0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Aktiivisuus raportti',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Provides a list of constituent activity including activity statistics for one/all contacts during a given date range(required)', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Sidosryhmäraportti (Yhteenveto)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Provides a list of address and telephone information for constituent records in your system.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Sidosryhmäraportti (yksityiskohtainen)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Provides contact-related information on contributions, memberships, events and activities.',   0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Aktiivisuusraportti',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Provides a list of constituent activity including activity statistics for one/all contacts during a given date range(required)', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Walk / Phone List Report',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Provides a detailed report for your walk/phonelist for targetted contacts', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report , 'Nykyinen työnantajan raportti',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Provides detail list of employer employee relationships along with employment details Ex Join Date', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Työpanosyhteenveto',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Yksityiskohtainen työpanosraportti',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Tämänhetkinen työnantajaraportti',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Provides detail list of employer employee relationships along with employment details Ex Join Date', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Maksujen yhteenvetoraportti',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Yksityiskohtainen maksuraportti',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Repeat Contributions Report',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Given two date ranges, shows contacts who contributed in both the date ranges with the amount contributed in each and the percentage increase / decrease.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Contributions by Organization Report',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Displays a detailed list of contributions grouped by organization, which includes contributions made by employees for the organisation.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Contributions by Household Report',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Displays a detailed list of contributions grouped by household which includes contributions made by members of the household.', 0, 0, 1, @contributeCompId, NULL),
@@ -5124,7 +5124,7 @@ VALUES
   (@option_group_id_report , 'Contribution Aggregate by Relationship',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'List contact\'s donation history, grouped by year, along with contributions attributed to any of the contact\'s related contacts.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report,  'Mail Detail Report',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Provides reporting on Intended and Successful Deliveries, Unsubscribes and Opt-outs, Replies and Forwards.',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Contribution and Membership Details', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Contribution details for any type of contribution, plus associated membership information for contributions which are in payment for memberships.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Raportti toistuvista maksuista', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Näyttää tietoa toistuvien lahjoitusten tilanteesta', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Aikataulutettu',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Completed',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5166,14 +5166,14 @@ VALUES
   (@option_group_id_mt, 'Hakujen määrittely',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Tuo kontakti',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Import Activity',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Tuo avustus', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Tuo maksu', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Tuo jäsenyys',   5, 'Import Membership',   NULL, 0, 0,    5, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Tuo osallistuja',  6, 'Import Participant',  NULL, 0, 0,    6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Vie kontakti',      7, 'Export Contact',      NULL, 0, 0,    7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'VIe avustus', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Vie maksu', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Vie jäsenyys',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Vie osallistuja', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Vie lahjoitus',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Export Pledge',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Export Case',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Export Grant',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Export Activity',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
@@ -5380,7 +5380,7 @@ VALUES
    (@option_group_id_conference_slot, 'Evening Sessions', 2, 'Evening Sessions', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch types
-   (@option_group_id_batch_type, 'Avustus', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Maksu', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Jäsenyys', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5433,7 +5433,7 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Virallinen'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
@@ -5554,16 +5554,16 @@ VALUES
   (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'Divehi; Dhivehi; Maldivian;', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'nl_NL', 'nl', 'Dutch', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'dz_BT', 'dz', 'Dzongkha', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_AU', 'en', 'English (Australia)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_CA', 'en', 'English (Canada)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_GB', 'en', 'English (United Kingdom)', @counter := @counter + 1),
-  (@option_group_id_languages, 1, 1, 'en_US', 'en', 'English (United States)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_AU', 'en', 'englanti (Australia)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_CA', 'en', 'englanti (Kanada)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_GB', 'en', 'englanti (Iso-Britannia)', @counter := @counter + 1),
+  (@option_group_id_languages, 1, 1, 'en_US', 'en', 'englanti (Yhdysvallat)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'eo_XX', 'eo', 'Esperanto', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'et_EE', 'et', 'Estonian', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ee_GH', 'ee', 'Ewe', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fo_FO', 'fo', 'Faroese', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fj_FJ', 'fj', 'Fijian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'fi_FI', 'fi', 'Finnish', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'fi_FI', 'fi', 'suomi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fr_CA', 'fr', 'French (Canada)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'French (France)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ff_SN', 'ff', 'Fula; Fulah; Pulaar; Pular', @counter := @counter + 1),
@@ -5674,7 +5674,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Sundanese', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'Swahili', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'Swati', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'Swedish', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'ruotsi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ta_IN', 'ta', 'Tamil', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'Telugu', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tg_TJ', 'tg', 'Tajik', @counter := @counter + 1),
@@ -5765,8 +5765,8 @@ VALUES
  ('PayJunction',        'PayJunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (yksi valuutta)', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
  ('Payment_Express',    'DPS Payment Express',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
- ('Dummy',              'Testi maksunvälittäjä',NULL,1,1,'Käyttäjän nimi',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
- ('Elavon',             'Elavon  maksunvälittäjä','Elavon / Nova kauppias',1,0,'SSL kauppiaan tunnus','SSL käyttäjän tunnus','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
+ ('Dummy',              'Maksunvälittäjä testikäyttöön',NULL,1,1,'Käyttäjän nimi',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
+ ('Elavon',             'Elavon-maksunvälittäjä','Elavon / Nova kauppias',1,0,'SSL kauppiaan tunnus','SSL käyttäjän tunnus','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
  ('Realex',             'Realex Payment',         NULL,1,0,'Merchant ID', 'Password', NULL, 'Account', 'Payment_Realex', 'https://epage.payandshop.com/epage.cgi', NULL, NULL, NULL, 'https://epage.payandshop.com/epage-remote.cgi', NULL, NULL, NULL, 1, 0 ),
  ('PayflowPro',         'PayflowPro',             NULL,1,0,'Vendor ID', 'Password', 'Partner (merchant)', 'User', 'Payment_PayflowPro', 'https://Payflowpro.paypal.com', NULL, NULL, NULL, 'https://pilot-Payflowpro.paypal.com', NULL, NULL, NULL, 1, 0 ),
  ('FirstData',          'FirstData (aka linkpoint)', 'FirstData (aka linkpoint)', 1, 0, 'Store name', 'certificate path', NULL, NULL, 'Payment_FirstData', 'https://secure.linkpt.net', NULL, NULL, NULL, 'https://staging.linkpt.net', NULL, NULL, NULL, 1, NULL);
@@ -6115,11 +6115,11 @@ INSERT INTO civicrm_uf_group
     (2,  'supporter_profile',  'Individual,Contact',  'Tukijan profiili',  2,           0,           '<p><strong>Antamiasi tietoja ei välitetä ulkopuolisille.</strong></p><p>Kiitos että osallistut kampanjaamme!</p>'),
     (3,  'participant_status', 'Participant',         'Osallistujan tila',             0,      1,           NULL),
     (4,  'new_individual',     'Individual,Contact',  'Uusi henkilö'    ,             0,      1,           NULL),
-    (5,  'new_organization',   'Organization,Contact','Uusi organisaatio'  ,             0,      1,           NULL),
+    (5,  'new_organization',   'Organization,Contact','Uusi yhteisö'  ,             0,      1,           NULL),
     (6,  'new_household',      'Household,Contact',   'Uusi kotitalous'     ,             0,      1,           NULL),
     (7,  'summary_overlay',    'Contact',             'Summary Overlay'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             'Jaettu osoite'                , 0,      1,           NULL),
-    (9,  'on_behalf_organization', 'Contact,Organization','On Behalf Of Organization',  0,      1,           NULL),
+    (9,  'on_behalf_organization', 'Contact,Organization','Yhteisön puolesta',  0,      1,           NULL),
     (10, 'contribution_batch_entry', 'Contribution', 'Contribution Bulk Entry' ,       0,      1,           NULL),
     (11, 'membership_batch_entry', 'Membership',     'Membership Bulk Entry' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Your Registration Info',         0,      0,           NULL),
@@ -6151,7 +6151,7 @@ INSERT INTO civicrm_uf_field
        (  4,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Etunimi',               'Individual',   NULL,  NULL),
        (  4,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Sukunimi',                'Individual',   NULL,  NULL),
        (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Sähköpostiosoite',            'Contact',      NULL,  NULL),
-       (  5,           'organization_name',     1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Organisaation nimi',        'Organization', NULL,  NULL),
+       (  5,           'organization_name',     1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Yhteisön nimi',        'Organization', NULL,  NULL),
        (  5,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Sähköpostiosoite',            'Contact',      NULL,  NULL),
        (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Kotitalouden nimi',           'Household',    NULL,  NULL),
        (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Sähköpostiosoite',            'Contact',      NULL,  NULL),
@@ -6163,7 +6163,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Postinumero',              'Contact',      NULL,  NULL),
        (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'Ensisijainen sähköpostiosoite',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'Ryhmät',                   'Contact',      NULL,  NULL),
-       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Luokat',                     'Contact',      NULL,  NULL),
+       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Avainsanat',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          'Sukupuoli',                   'Individual',   NULL,  NULL),
        (  7,           'birth_date',            1,           0,           11,     'User and User Admin Only',  0,           0,             NULL,          'Syntymäpäivä',            'Individual',   NULL,  NULL),
        (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             'Katuosoite (koti)',    'Contact',      NULL,  NULL),
@@ -6171,7 +6171,7 @@ INSERT INTO civicrm_uf_field
        (  8,           'postal_code',           0,           0,           3,      'User and User Admin Only',  0,           0,             1,             'Postinumero (koti)',       'Contact',      NULL,  NULL),
        (  8,           'country',               0,           0,           4,      'User and User Admin Only',  0,           0,             1,             'Maa (koti)',           'Contact',      NULL,  NULL),
        (  8,           'state_province',        0,           0,           5,      'User and User Admin Only',  0,           0,             1,             'Maakunta (koti)',             'Contact',      NULL,  NULL),
-       (  9,           'organization_name',     1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Organisaation nimi',        'Organization', NULL,  NULL),
+       (  9,           'organization_name',     1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Yhteisön nimi',        'Organization', NULL,  NULL),
        (  9,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             3,             'Puhelinnumero (ensisijainen)',            'Contact',      NULL,   1),
        (  9,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             3,             'Sähköposti (ensisijainen)',            'Contact',      NULL,   NULL),
        (  9,           'street_address',        1,           0,           4,      'User and User Admin Only',  0,           0,             3,             'Katuosoite',           'Contact',      NULL,   NULL),
@@ -6179,14 +6179,14 @@ INSERT INTO civicrm_uf_field
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'Postinumero',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Valtio',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Maakunta',         'Contact',      NULL,   NULL),
-       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Financial Type', 'Contribution', NULL, NULL ),
+       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Maksun tyyppi', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Määrä', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Tila', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Vastaanotettu', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Lähde', 'Contribution', NULL, NULL ),
        ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Maksettu', 'Contribution', NULL, NULL ),
        ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Check Number', 'Contribution', NULL, NULL ),
-       ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Send Receipt', 'Contribution', NULL, NULL ),
+       ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Lähetä kuitti', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'Laskun ID', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Contribution', NULL, NULL ),
@@ -6195,8 +6195,8 @@ INSERT INTO civicrm_uf_field
        ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Alkamispäivä', 'Membership', NULL, NULL ),
        ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Päättymispäivä', 'Membership', NULL, NULL ),
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Lähde', 'Membership', NULL, NULL ),
-       ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Send Receipt', 'Membership', NULL, NULL ),
-       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Financial Type', 'Membership', NULL, NULL ),
+       ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Lähetä kuitti', 'Membership', NULL, NULL ),
+       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Maksun tyyppi', 'Membership', NULL, NULL ),
        ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Määrä', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Vastaanotettu', 'Membership', NULL, NULL ),
        ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Maksettu', 'Membership', NULL, NULL ),
@@ -6281,7 +6281,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', 'Viestimallien työnkulku tapauksille',               'Viestimallien työnkulku tapauksille',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Viestimallien työnkulku lahjoituksille',               'Viestimallien työnkulku lahjoituksille',                     1,           1) ,    ('msg_tpl_workflow_event', 'Viestimallien työnkulku tapahtumille',               'Viestimallien työnkulku tapahtumille',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Viestimallien työnkulku ystävälle kertomiseen',               'Viestimallien työnkulku ystävälle kertomiseen',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Viestimallien työnkulku jäsenyydelle',               'Viestimallien työnkulku jäsenyydelle',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Viestimallien työnkulku metamalleille',               'Viestimallien työnkulku metamalleille',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Viestimallien työnkulku lupauksille',               'Viestimallien työnkulku lupauksille',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Viestimallien työnkulku profiileille',               'Viestimallien työnkulku profiileille',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Viestimallien työnkulku vetoomuksille',               'Viestimallien työnkulku vetoomuksille',                     1,           1) ;
+    ('msg_tpl_workflow_case', 'Viestimallien työnkulku tapauksille',               'Viestimallien työnkulku tapauksille',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Message Template Workflow for Contributions',               'Message Template Workflow for Contributions',                     1,           1) ,    ('msg_tpl_workflow_event', 'Viestimallien työnkulku tapahtumille',               'Viestimallien työnkulku tapahtumille',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Viestimallien työnkulku ystävälle kertomiseen',               'Viestimallien työnkulku ystävälle kertomiseen',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Viestimallien työnkulku jäsenyydelle',               'Viestimallien työnkulku jäsenyydelle',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Viestimallien työnkulku metamalleille',               'Viestimallien työnkulku metamalleille',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Viestimallien työnkulku lupauksille',               'Viestimallien työnkulku lupauksille',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Viestimallien työnkulku profiileille',               'Viestimallien työnkulku profiileille',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Viestimallien työnkulku vetoomuksille',               'Viestimallien työnkulku vetoomuksille',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Tapaukset - lähetä toiminnon kopio',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Lahjoitukset - yhteisön kaksoiskappaleen hälytys',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Lahjoitukset - kuitti (offline-tila)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Lahjoitukset - kuitti (onlin-tila)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Lahjoitukset - toistuva alku- ja loppumuistutus',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Recurring Cancellation Notification',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Recurring Billing Updates',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Recurring Updates',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Omat kampanjasivut - ylläpitäjän muistutus',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Omat kampanjasivut - tukijan tilan muutoksen muistutus',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Omat kampanjasivut - tukijan tervetulotervehdys',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Tapahtumat - ilmoittautumisen vahvistus ja kuitti (offline-tila)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Tapahtumat - ilmoittautumisen vahvistus ja kuitti (online-tila)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Events - Receipt only',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Tapahtumat - ilmoittautumisen peruutusmuistutus',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Tapahtumat - ilmoittautumisen vahvistuksen kutsu',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Tapahtumat - odottavan ilmoittautumisen vanhentumisen muistutus',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Kerro ystävälle -sähköposti',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Jäsenyydet - liittymisen ja jäsenyyden uusimisen kuitti (offline-tila)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Jäsenyydet - kuitti (online-tila)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Memberships - Auto-renew Cancellation Notification',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Memberships - Auto-renew Billing Updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Testaa - kuitin yläviite',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Lupaukset - vahvistus',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Lupaukset - maksumuistutus',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiilit - ylläpitäjän muistutus',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Vetoomus - allekirjoitus lisätty',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Vetoomus - tarvitsee vahvistuksen',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Tapaukset - lähetä toiminnon kopio',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Maksut - hälytys kahtena kappaleena esiintyvästä yhteisöstä',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Maksut - kuitti (offline-tila)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Maksut - kuitti (online-tila)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Maksut - toistuva alku- ja loppumuistutus',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Recurring Cancellation Notification',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Recurring Billing Updates',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Recurring Updates',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Omat kampanjasivut - ylläpitäjän muistutus',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Omat kampanjasivut - tukijan tilan muutoksen muistutus',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Omat kampanjasivut - tukijan tervetulotervehdys',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Henkilökohtainen kampanjasivu – tiedote omistajalle',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Tapahtumat - ilmoittautumisen vahvistus ja kuitti (offline-tila)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Tapahtumat - ilmoittautumisen vahvistus ja kuitti (online-tila)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Events - Receipt only',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Tapahtumat - ilmoittautumisen peruutusmuistutus',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Tapahtumat - ilmoittautumisen vahvistuksen kutsu',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Tapahtumat - odottavan ilmoittautumisen vanhentumisen muistutus',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Kerro ystävälle -sähköposti',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Jäsenyydet - liittymisen ja jäsenyyden uusimisen kuitti (offline-tila)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Jäsenyydet - kuitti (online-tila)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Memberships - Auto-renew Cancellation Notification',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Memberships - Auto-renew Billing Updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Testaa - kuitin yläviite',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Lupaukset - vahvistus',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Lupaukset - maksumuistutus',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiilit - ylläpitäjän muistutus',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Vetoomus - allekirjoitus lisätty',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Vetoomus - tarvitsee vahvistuksen',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -6622,7 +6622,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_case_activity, 0,          1) ,      
       
       
-      ('Lahjoitukset - yhteisön kaksoiskappaleen hälytys', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
+      ('Maksut - hälytys kahtena kappaleena esiintyvästä yhteisöstä', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
 ', '{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}
 {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}
 
@@ -6727,7 +6727,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_dupalert, 1,          0),
-      ('Lahjoitukset - yhteisön kaksoiskappaleen hälytys', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
+      ('Maksut - hälytys kahtena kappaleena esiintyvästä yhteisöstä', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
 ', '{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}
 {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}
 
@@ -6834,7 +6834,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_dupalert, 0,          1) ,      
       
       
-      ('Lahjoitukset - kuitti (offline-tila)', '{ts}Contribution Receipt{/ts}
+      ('Maksut - kuitti (offline-tila)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7273,7 +7273,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_offline_receipt, 1,          0),
-      ('Lahjoitukset - kuitti (offline-tila)', '{ts}Contribution Receipt{/ts}
+      ('Maksut - kuitti (offline-tila)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7714,7 +7714,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_offline_receipt, 0,          1) ,      
       
       
-      ('Lahjoitukset - kuitti (onlin-tila)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Maksut - kuitti (online-tila)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8397,7 +8397,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_online_receipt, 1,          0),
-      ('Lahjoitukset - kuitti (onlin-tila)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Maksut - kuitti (online-tila)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -9978,7 +9978,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_invoice_receipt, 0,          1) ,      
       
       
-      ('Lahjoitukset - toistuva alku- ja loppumuistutus', '{ts}Recurring Contribution Notification{/ts}
+      ('Maksut - toistuva alku- ja loppumuistutus', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10155,7 +10155,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_notify, 1,          0),
-      ('Lahjoitukset - toistuva alku- ja loppumuistutus', '{ts}Recurring Contribution Notification{/ts}
+      ('Maksut - toistuva alku- ja loppumuistutus', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Henkilökohtainen kampanjasivu – tiedote omistajalle', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Henkilökohtainen kampanjasivu – tiedote omistajalle', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -22835,7 +22835,7 @@ VALUES
   (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Henkilökohtainen kampanjasivu', 10, 'pcp', 10, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.21';
+UPDATE civicrm_domain SET version = '4.6.25';
