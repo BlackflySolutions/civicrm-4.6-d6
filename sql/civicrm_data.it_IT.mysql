@@ -4631,13 +4631,13 @@ VALUES
    ('activity_type'                 , 'Tipo di attività'                      , 1, 1, 0),
    ('gender'                        , 'Sesso'                             , 1, 1, 0),
    ('instant_messenger_service'     , 'Instant Messenger (IM) screen-names', 1, 1, 0),
-   ('mobile_provider'               , 'Mobile Phone Providers'             , 1, 1, 0),
+   ('mobile_provider'               , 'Operatori di Telefonia Mobile'             , 1, 1, 0),
    ('individual_prefix'             , 'Individual contact prefixes'        , 1, 1, 0),
    ('individual_suffix'             , 'Individual contact suffixes'        , 1, 1, 0),
    ('acl_role'                      , 'Ruolo ACL'                           , 1, 1, 0),
    ('accept_creditcard'             , 'Accepted Credit Cards'              , 1, 1, 0),
    ('payment_instrument'            , 'Payment Instruments'                , 1, 1, 0),
-   ('contribution_status'           , 'Stato Contributi'                , 1, 1, 1),
+   ('contribution_status'           , 'Stato del Contributo'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Status'                         , 1, 1, 1),
    ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
    ('participant_role'              , 'Ruolo Partecipante'                   , 1, 1, 0),
@@ -4648,7 +4648,7 @@ VALUES
    ('advanced_search_options'       , 'Opzioni Ricerca Avanzata'            , 1, 1, 1),
    ('user_dashboard_options'        , 'Opzioni Dettagli Utente'             , 1, 1, 1),
    ('address_options'               , 'Addressing Options'                 , 1, 1, 0),
-   ('group_type'                    , 'Tipo di gruppo'                         , 1, 1, 0),
+   ('group_type'                    , 'Tipo di Gruppo'                         , 1, 1, 0),
    ('grant_status'                  , 'Stato Finanziamento'                       , 1, 1, 0),
    ('grant_type'                    , 'Tipo di contributo'                         , 1, 1, 0),
    ('custom_search'                 , 'Ricerca personalizzata'                      , 1, 1, 0),
@@ -4673,7 +4673,7 @@ VALUES
    ('addressee'                     , 'Addressee Type'                     , 1, 1, 0),
    ('contact_autocomplete_options'  , 'Autocompleta ricerca contatto'        , 1, 1, 1),
    ('contact_reference_options'     , 'Opzioni di autocompletamento contatto di riferimento', 1, 1, 1),
-   ('website_type'                  , 'Tipo di Sito web '                       , 1, 1, 0),
+   ('website_type'                  , 'Tipo Sito web'                       , 1, 1, 0),
    ('tag_used_for'                  , 'Tag Used For'                       , 1, 1, 1),
    ('currencies_enabled'            , 'Currencies Enabled'                 , 1, 1, 0),
    ('event_badge'                   , 'Event Name Badge'                   , 1, 1, 0),
@@ -4697,7 +4697,7 @@ VALUES
    ('sms_api_type'                  , 'Tipologia API'                           , 1, 1, 0),
    ('sms_provider_name'             , 'Sms Provider Internal Name'         , 1, 1, 0),
    ('auto_renew_options'            , 'Auto Renew Options'                 , 1, 1, 1),
-   ('financial_account_type'        , 'Financial Account Type'             , 1, 1, 0),
+   ('financial_account_type'        , 'Tipo di Conto Finanziario'             , 1, 1, 0),
    ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
    ('label_type'                    , 'Label Type'                         , 1, 1, 0),
    ('name_badge'                    , 'Name Badge Format'                  , 1, 1, 0),
@@ -4863,8 +4863,8 @@ VALUES
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Pagamento', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Pagamento', 46, 'Payment', NULL, 1, NULL, 46, 'Pagamento addizionale registrato per evento o quota associativa.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Rimborso registrato per evento o quota associativa.', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
    (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
@@ -5081,7 +5081,7 @@ VALUES
   (@option_group_id_report , 'Activity Report',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Provides a list of constituent activity including activity statistics for one/all contacts during a given date range(required)', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Walk / Phone List Report',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Provides a detailed report for your walk/phonelist for targetted contacts', 0, 0, 0, NULL, NULL),
   (@option_group_id_report , 'Current Employer Report',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Provides detail list of employer employee relationships along with employment details Ex Join Date', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Contribution Summary Report',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Contribution Summary Report',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Gruppi e totali contributi per criteri compresi il contatto, il periodo di tempo, il tipo finanziario, la posizione del contributore, ecc.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Contribution Detail Report',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Repeat Contributions Report',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Given two date ranges, shows contacts who contributed in both the date ranges with the amount contributed in each and the percentage increase / decrease.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Contributions by Organization Report',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Displays a detailed list of contributions grouped by organization, which includes contributions made by employees for the organisation.', 0, 0, 1, @contributeCompId, NULL),
@@ -5095,7 +5095,7 @@ VALUES
   (@option_group_id_report , 'Membership Report (Lapsed)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Provides a list of memberships that lapsed or will lapse before the date you specify.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Event Participant Report (List)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Provides lists of participants for an event.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Event Income Report (Summary)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Provides an overview of event income. You can include key information such as event ID, registration, attendance, and income generated to help you determine the success of an event.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Event Income Report (Detail)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Helps you to analyze the income generated by an event. The report can include details by participant type, status and payment method.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Event Income Report (Detail)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Ti aiuta ad analizzare il reddito generati da un evento. Il report può includere dettagli per tipo di partecipante, stato e metodo di pagamento.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Pledge Report',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Pledge Report', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Report promessi ma non pagati',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Report promessi ma non pagati', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Relationship Report',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Relationship Report', 0, 0, 1, NULL, NULL),
@@ -6179,7 +6179,7 @@ INSERT INTO civicrm_uf_field
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'Codice Postale',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Paese',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Provincia/Stato',         'Contact',      NULL,   NULL),
-       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Tipo finanziario', 'Contribution', NULL, NULL ),
+       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Tipo Finanziario', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Importo', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Stato', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Ricevuto', 'Contribution', NULL, NULL ),
@@ -6196,7 +6196,7 @@ INSERT INTO civicrm_uf_field
        ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Data fine', 'Membership', NULL, NULL ),
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Fonte', 'Membership', NULL, NULL ),
        ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Invia Ricevuta', 'Membership', NULL, NULL ),
-       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Tipo finanziario', 'Membership', NULL, NULL ),
+       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Tipo Finanziario', 'Membership', NULL, NULL ),
        ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Importo', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Ricevuto', 'Membership', NULL, NULL ),
        ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Pagato da', 'Membership', NULL, NULL ),
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.31';
+UPDATE civicrm_domain SET version = '4.6.33';

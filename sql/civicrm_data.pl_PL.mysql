@@ -4682,7 +4682,7 @@ VALUES
    ('campaign_status'               , 'Stan kampanii'                    , 1, 1, 0),
    ('system_extensions'             , 'CiviCRM Extensions'                 , 1, 1, 0),
    ('mail_approval_status'          , 'CiviMail Approval Status'           , 1, 1, 0),
-   ('engagement_index'              , 'Index zaangażowania'                   , 1, 1, 0),
+   ('engagement_index'              , 'Współczynnik zaangażowania'                   , 1, 1, 0),
    ('cg_extend_objects'             , 'Objects a custom group extends to'  , 1, 1, 0),
    ('paper_size'                    , 'Rozmiar papieru'                         , 1, 1, 0),
    ('pdf_format'                    , 'PDF Page Format'                    , 1, 1, 0),
@@ -4811,7 +4811,7 @@ VALUES
    (@option_group_id_act, 'Powiedz znajomym',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Send information about a contribution campaign or event to a friend.', 0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Pledge Acknowledgment',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Send Pledge Acknowledgment.',                                     0, 1, 1, @pledgeCompId, NULL),
    (@option_group_id_act, 'Pledge Reminder',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Send Pledge Reminder.',                                               0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'Inbound Email',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Inbound Email.',                                                     0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Przychodzący e-mail',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Przychodzący e-mail.',                                                     0, 1, 1, NULL, NULL),
 
 -- Activity Types for case activities
    (@option_group_id_act, 'Open Case',          13, 'Open Case',          NULL, 0,  0, 13, '', 0, 1, 1, @caseCompId, NULL),
@@ -4859,7 +4859,7 @@ VALUES
 
 -- new sms options
    (@option_group_id_act, 'SMS delivery', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS delivery', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Inbound SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Inbound SMS', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Przychodzący SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Przychodzący SMS', 0, 1, 1, NULL, NULL),
 
 
  -- Activity types for particial payment
@@ -4960,7 +4960,7 @@ VALUES
   (@option_group_id_cvOpt, 'Tagi'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Dziennik zmian'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Transakcje',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Członkowstwo'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Członkostwo'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Wydarzenia'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Przypadki'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Dotacje'       ,  11, 'CiviGrant', NULL, 0, NULL,  11, NULL, 0, 0, 1, NULL, NULL),
@@ -4997,7 +4997,7 @@ VALUES
   (@option_group_id_asOpt, 'Notatki'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Zmień Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Transakcje'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Członkowstwo'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Członkostwo'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Wydarzenia'                  ,   9, 'CiviEvent', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Przypadki'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
@@ -5010,7 +5010,7 @@ VALUES
 
   (@option_group_id_udOpt, 'Grupy'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Transakcje'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Członkowstwo'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Członkostwo'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Wydarzenia'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'My Contacts / Organizations', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Deklaracje'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.31';
+UPDATE civicrm_domain SET version = '4.6.33';
